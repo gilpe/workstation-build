@@ -27,14 +27,24 @@ This is an iterative Arch Linux workstation build project. The goal is to create
 - Bluetooth, printing, networking configured
 - GitHub CLI for authentication
 - Dotfiles managed with GNU Stow (ghostty, hypr, lazygit, opencode, superfile, gh)
+- Display manager (ly) configured with Hyprland as default session
+- TTY font configured (ter-132n for QHD+)
+- Wireless regulatory domain configured (ES)
+- Console log level set to quiet (prevents kernel warnings on TTY)
 
 ### What's Pending
 - Limine bootloader configuration (TODO in install.sh)
 - Shell environment (zsh config, prompt, aliases)
 - Neovim configuration
 - Additional development tools as needed
-
 ## Conventions
+
+### Workflow Principle
+**Apply fixes directly to the system first, then update documentation.**
+- When fixing issues, make the changes directly to the live system
+- After fixing, update install.sh and documentation for future installations
+- Do NOT re-run the entire install script to apply fixes
+- The install script is for fresh installations, not for applying individual fixes
 
 ### When Adding New Software/Configuration
 
@@ -80,6 +90,18 @@ This is an iterative Arch Linux workstation build project. The goal is to create
 3. **Follow the iterative approach** - one thing at a time
 4. **Test installations** before marking as complete
 5. **Update all three files** after each addition
+
+### Handling Permission Issues
+
+**If you encounter permission/granting issues that cannot be handled through the terminal:**
+1. **Pause immediately** - don't try to work around it
+2. **Let the human execute the command** manually
+3. **Wait for confirmation** before continuing
+4. **Then proceed** with the rest of the task
+
+**Note:** If sudo can be handled through the terminal (password prompt, etc.), proceed normally. Only pause when the tool cannot execute the command at all.
+
+This prevents rework, dependencies issues, and ensures the human maintains control over privileged operations when needed.
 
 ### Common Tasks
 

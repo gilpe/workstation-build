@@ -39,7 +39,8 @@ install_pacman_packages() {
     # Networking
     sudo pacman -S --needed --noconfirm \
         networkmanager \
-        iwd
+        iwd \
+        wireless-regdb
     
     # Audio
     sudo pacman -S --needed --noconfirm \
@@ -81,7 +82,11 @@ install_pacman_packages() {
     
     # Utilities
     sudo pacman -S --needed --noconfirm \
-        stow
+        stow \
+        terminus-font \
+        ttf-jetbrains-mono-nerd \
+        opencode \
+        superfile
     
     success "Pacman packages installed"
 }
@@ -113,10 +118,7 @@ install_aur_packages() {
     
     info "Installing AUR packages..."
     yay -S --needed --noconfirm \
-        brave-bin \
-        opencode \
-        superfile \
-        ttf-jetbrains-mono-nerd
+        brave-bin
     
     success "AUR packages installed"
 }
@@ -166,7 +168,108 @@ deploy_dotfiles() {
     success "Dotfiles deployed"
 }
 
-# Section 6: Limine configuration
+# Section 6: Display manager (ly)
+configure_display_manager() {
+    if systemctl is-active --quiet ly@tty2.service; then
+        success "ly display manager is already active"
+        return 0
+    fi
+
+    info "Installing ly display manager..."
+    sudo pacman -S --needed --noconfirm ly
+
+    info "Enabling ly@tty2.service..."
+    sudo systemctl enable ly@tty2.service
+
+    info "Configuring ly with Hyprland as default session..."
+    if [ -f /etc/ly/config.ini ]; then
+        warn "/etc/ly/config.ini already exists, backing up to /etc/ly/config.ini.bak"
+        sudo cp /etc/ly/config.ini /etc/ly/config.ini.bak
+    fi
+
+    sudo tee /etc/ly/config.ini > /dev/null << 'EOF'
+# ly display manager configuration
+# Default session set to Hyprland
+default_session = Hyprland
+EOF
+
+    success "ly display manager configured on tty2"
+}
+
+# Section 7: Configure TTY font
+configure_tty_font() {
+    if [ ! -f /etc/vconsole.conf ]; then
+        error "/etc/vconsole.conf not found"
+        return 1
+    fi
+
+    info "Configuring TTY font..."
+    
+    if grep -q "FONT=ter-132n" /etc/vconsole.conf; then
+        success "TTY font already configured as ter-132n"
+        return 0
+    fi
+
+    if [ -f /etc/vconsole.conf ]; then
+        warn "Backing up /etc/vconsole.conf to /etc/vconsole.conf.bak"
+        sudo cp /etc/vconsole.conf /etc/vconsole.conf.bak
+    fi
+
+    sudo sed -i 's/^FONT=.*/FONT=ter-132n/' /etc/vconsole.conf
+    
+    info "Rebuilding initramfs..."
+    sudo mkinitcpio -P
+    
+    success "TTY font configured (ter-132n). Reboot to apply."
+}
+
+# Section 8: Configure wireless regulatory domain
+configure_wireless_regdom() {
+    if [ -f /etc/conf.d/wireless-regdom ]; then
+        if grep -q "WIRELESS_REGDOM=ES" /etc/conf.d/wireless-regdom; then
+            success "Wireless regulatory domain already configured for ES (Spain)"
+            return 0
+        fi
+    fi
+
+    info "Configuring wireless regulatory domain..."
+    
+    sudo tee /etc/conf.d/wireless-regdom > /dev/null << 'EOF'
+# Wireless regulatory domain configuration
+# Set your country code (e.g., ES for Spain, US for United States)
+WIRELESS_REGDOM=ES
+EOF
+
+    success "Wireless regulatory domain configured for ES (Spain)"
+}
+
+# Section 9: Quiet console log level
+configure_quiet_console() {
+    if [ -f /etc/sysctl.d/99-quiet-console.conf ]; then
+        if grep -q "kernel.printk = 3 4 1 3" /etc/sysctl.d/99-quiet-console.conf; then
+            success "Console log level already configured"
+            return 0
+        fi
+    fi
+
+    info "Setting quiet console log level to prevent kernel warnings on TTY..."
+    
+    sudo tee /etc/sysctl.d/99-quiet-console.conf > /dev/null << 'EOF'
+# Quiet kernel console messages
+# Prevents kernel warnings from cluttering TTY/login screens
+# Messages are still logged to journal (journalctl -k)
+# kernel.printk format: console_loglevel default_message_loglevel minimum_console_loglevel default_console_loglevel
+# Setting console_loglevel to 3 means only errors (level 0-2) print to TTY
+# Warnings (level 3) and above are suppressed from console but still logged
+kernel.printk = 3 4 1 3
+EOF
+
+    sudo sysctl -p /etc/sysctl.d/99-quiet-console.conf
+    
+    success "Console log level set to quiet"
+}
+
+# Section 10: Limine configuration
 configure_limine() {
     warn "Limine configuration not yet implemented"
     # TODO: Add limine configuration when ready
@@ -211,6 +314,30 @@ main() {
     
     echo
     
+    if confirm "Configure display manager (ly)?"; then
+        configure_display_manager
+    fi
+
+    echo
+
+    if confirm "Configure TTY font (ter-132n for QHD+)?"; then
+        configure_tty_font
+    fi
+
+    echo
+
+    if confirm "Configure wireless regulatory domain (ES)?"; then
+        configure_wireless_regdom
+    fi
+
+    echo
+
+    if confirm "Set quiet console log level (prevents kernel warnings on TTY)?"; then
+        configure_quiet_console
+    fi
+
+    echo
+
     if confirm "Configure Limine bootloader?"; then
         configure_limine
     fi
