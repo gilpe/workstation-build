@@ -20,7 +20,7 @@ This project follows an iterative approach:
 3. Document everything in these files
 4. Move to the next requirement as it arises
 
-Dotfiles are built fresh in this repository and will be integrated with GNU Stow once the configuration is finalized.
+Dotfiles are managed with GNU Stow. Configuration files are stored in `dotfiles/` and symlinked to `~/.config/`.
 
 ## Installed Packages
 
@@ -72,6 +72,7 @@ Dotfiles are built fresh in this repository and will be integrated with GNU Stow
 - neovim
 
 ### Utilities
+- stow
 - superfile
 
 ### Fonts
@@ -95,10 +96,39 @@ Dotfiles are built fresh in this repository and will be integrated with GNU Stow
 - Version: 13.0.1
 - Installed from AUR
 
+## Dotfiles
+
+Managed with GNU Stow. Structure:
+
+```
+dotfiles/
+  ghostty/
+    .config/ghostty/config.ghostty
+  hypr/
+    .config/hypr/hyprland.lua
+  lazygit/
+    .config/lazygit/config.yml
+  opencode/
+    .config/opencode/opencode.jsonc
+  superfile/
+    .config/superfile/config.toml
+    .config/superfile/hotkeys.toml
+    .config/superfile/theme/*.toml
+  gh/
+    .config/gh/config.yml
+```
+
+Each package mirrors the home directory structure. Deploy with:
+```bash
+cd ~/workstation-build/dotfiles
+stow -t ~ ghostty hypr lazygit opencode superfile gh
+```
+
+**Note:** `gh/hosts.yml` is not tracked (contains OAuth tokens).
+
 ## Next Steps
 
 - [ ] Configure Limine bootloader
 - [ ] Set up shell environment (zsh, prompt, aliases)
 - [ ] Configure Neovim
 - [ ] Add more development tools as needed
-- [ ] Integrate dotfiles with stow

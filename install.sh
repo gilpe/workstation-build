@@ -79,6 +79,10 @@ install_pacman_packages() {
         lazygit \
         neovim
     
+    # Utilities
+    sudo pacman -S --needed --noconfirm \
+        stow
+    
     success "Pacman packages installed"
 }
 
@@ -133,7 +137,36 @@ configure_git() {
     success "Git configured"
 }
 
-# Section 5: Limine configuration
+# Section 5: Deploy dotfiles
+deploy_dotfiles() {
+    if ! command -v stow &> /dev/null; then
+        error "stow is not installed. Run section 1 first."
+        return 1
+    fi
+    
+    SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+    DOTFILES_DIR="$SCRIPT_DIR/dotfiles"
+    
+    if [ ! -d "$DOTFILES_DIR" ]; then
+        error "Dotfiles directory not found at $DOTFILES_DIR"
+        return 1
+    fi
+    
+    info "Deploying dotfiles with stow..."
+    
+    for package in ghostty hypr lazygit opencode superfile gh; do
+        if [ -d "$DOTFILES_DIR/$package" ]; then
+            stow -t ~ "$package" --restow
+            success "Deployed $package"
+        else
+            warn "Package $package not found, skipping"
+        fi
+    done
+    
+    success "Dotfiles deployed"
+}
+
+# Section 6: Limine configuration
 configure_limine() {
     warn "Limine configuration not yet implemented"
     # TODO: Add limine configuration when ready
@@ -168,6 +201,12 @@ main() {
     
     if confirm "Configure git?"; then
         configure_git
+    fi
+    
+    echo
+    
+    if confirm "Deploy dotfiles?"; then
+        deploy_dotfiles
     fi
     
     echo

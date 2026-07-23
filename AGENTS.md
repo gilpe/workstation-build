@@ -11,6 +11,7 @@ This is an iterative Arch Linux workstation build project. The goal is to create
 - **README.md** - Living documentation of the workstation: what it is, what's installed, current state
 - **install.sh** - Interactive installation script with all packages and configurations
 - **AGENTS.md** - This file. Instructions for AI agents working on this project
+- **dotfiles/** - Configuration files managed with GNU Stow
 
 ## Current State
 
@@ -25,13 +26,13 @@ This is an iterative Arch Linux workstation build project. The goal is to create
 - Audio stack (PipeWire)
 - Bluetooth, printing, networking configured
 - GitHub CLI for authentication
+- Dotfiles managed with GNU Stow (ghostty, hypr, lazygit, opencode, superfile, gh)
 
 ### What's Pending
 - Limine bootloader configuration (TODO in install.sh)
 - Shell environment (zsh config, prompt, aliases)
 - Neovim configuration
 - Additional development tools as needed
-- Dotfiles integration with stow (later, when config is finalized)
 
 ## Conventions
 
@@ -56,9 +57,11 @@ This is an iterative Arch Linux workstation build project. The goal is to create
    - Add new sections if needed (e.g., "Docker Setup", "Programming Languages")
 
 4. **Configuration files:**
-   - Build fresh configs in this repository
-   - Don't use existing ~/dotfiles/ yet
-   - Will integrate with stow later when finalized
+   - All configs go in `dotfiles/<package>/.config/<package>/`
+   - Each package mirrors the home directory structure
+   - Deploy with `stow -t ~ <package>` from the dotfiles directory
+   - Never track secrets (tokens, passwords) - use `.gitignore`
+   - When adding a new tool config, create a new package directory
 
 ### Code Style
 
@@ -91,6 +94,13 @@ This is an iterative Arch Linux workstation build project. The goal is to create
 3. Document in README.md
 4. Check if config file exists before overwriting
 
+**Adding a new dotfile package:**
+1. Create `dotfiles/<package>/.config/<package>/` directory
+2. Add config files to that directory
+3. Add package to the deploy_dotfiles function in install.sh
+4. Run `stow -t ~ <package>` from dotfiles directory to create symlinks
+5. Document in README.md under Dotfiles section
+
 **Adding a new tool category:**
 1. Create new function in install.sh
 2. Add new section in README.md
@@ -99,10 +109,11 @@ This is an iterative Arch Linux workstation build project. The goal is to create
 ### Important Notes
 
 - The user prefers a **fluid, iterative approach** - don't try to do everything at once
-- **Dotfiles are separate** - we're building fresh configs, will integrate with stow later
+- **Dotfiles are managed with stow** - configs go in `dotfiles/<package>/`, symlinked to `~/.config/`
 - **Interactive prompts** in install.sh - user confirms each section
 - **Check before overwriting** - don't destroy existing configs
 - **Document everything** - if it's not in the files, it didn't happen
+- **Never track secrets** - use `.gitignore` for tokens, passwords, etc.
 
 ## Workflow Example
 
