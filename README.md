@@ -110,6 +110,7 @@ Dotfiles are managed with GNU Stow. Configuration files are stored in `dotfiles/
 - stow
 - opencode
 - superfile
+- bemenu
 
 ### Fonts
 - ttf-jetbrains-mono-nerd
@@ -126,6 +127,18 @@ Dotfiles are managed with GNU Stow. Configuration files are stored in `dotfiles/
 - Email: javier.gil.perez@outlook.es
 - Credential helper: GitHub CLI (gh)
 
+### Hyprland
+- **Keyboard layout:** ES (Spanish)
+- **SUPER + Enter:** Opens terminal (ghostty)
+- **SUPER + Esc:** Close window
+- **SUPER + E:** Opens file manager (superfile in ghostty)
+- **SUPER + Space:** Opens launcher (bemenu)
+- **Animations:** Lightweight (fade disabled, faster speeds)
+- **Smart gaps:** Enabled (no gaps when single window)
+- **Resize on border:** Enabled
+- **Logo/wallpaper:** Disabled
+- **Dwindle layout:** preserve_split = true (default behavior)
+
 ### YAY
 - Version: 13.0.1
 - Installed from AUR
@@ -139,7 +152,14 @@ dotfiles/
   ghostty/
     .config/ghostty/config.ghostty
   hypr/
-    .config/hypr/hyprland.lua
+    .config/hypr/hyprland.lua      (main entry - requires sub-modules)
+    .config/hypr/monitor.lua       (monitor configuration)
+    .config/hypr/input.lua         (keyboard ES layout, mouse, touchpad)
+    .config/hypr/decoration.lua    (borders, shadows, blur, smart gaps)
+    .config/hypr/animations.lua    (lightweight animations)
+    .config/hypr/bindings.lua      (keybinds)
+    .config/hypr/windowrules.lua   (window/workspace rules)
+    .config/hypr/misc.lua          (env vars, autostart, misc settings)
   lazygit/
     .config/lazygit/config.yml
   opencode/

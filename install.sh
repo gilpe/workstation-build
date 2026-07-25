@@ -81,12 +81,13 @@ install_pacman_packages() {
         neovim
     
     # Utilities
-    sudo pacman -S --needed --noconfirm \
+    pacman -S --needed --noconfirm \
         stow \
         terminus-font \
         ttf-jetbrains-mono-nerd \
         opencode \
-        superfile
+        superfile \
+        bemenu
     
     success "Pacman packages installed"
 }

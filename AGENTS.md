@@ -31,6 +31,12 @@ This is an iterative Arch Linux workstation build project. The goal is to create
 - TTY font configured (ter-132n for QHD+)
 - Wireless regulatory domain configured (ES)
 - Console log level set to quiet (prevents kernel warnings on TTY)
+- Hyprland config split into modular Lua files (monitor, input, decoration, layouts, animations, bindings, windowrules, misc)
+- Hyprland keyboard layout set to ES (Spanish)
+- Hyprland SUPER+Enter opens terminal, SUPER+Esc closes window, SUPER+E opens superfile, SUPER+Space opens bemenu launcher
+- Hyprland animations optimized for performance (fade disabled, faster speeds)
+- Hyprland smart gaps enabled, resize on border enabled, logo/wallpaper disabled
+- Hyprland dwindle layout configured with preserve_split = true (default behavior)
 
 ### What's Pending
 - Limine bootloader configuration (TODO in install.sh)
