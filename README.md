@@ -127,6 +127,9 @@ Dotfiles are managed with GNU Stow. Configuration files are stored in `dotfiles/
 - Email: javier.gil.perez@outlook.es
 - Credential helper: GitHub CLI (gh)
 
+### Ghostty
+- **Padding:** 0 (content fills available space, top-left aligned)
+
 ### Hyprland
 - **Keyboard layout:** ES (Spanish)
 - **SUPER + Enter:** Opens terminal (ghostty)
@@ -135,6 +138,7 @@ Dotfiles are managed with GNU Stow. Configuration files are stored in `dotfiles/
 - **SUPER + Space:** Opens launcher (bemenu)
 - **Animations:** Lightweight (fade disabled, faster speeds)
 - **Smart gaps:** Enabled (no gaps when single window)
+- **Gaps:** 3px inner, 10px outer
 - **Resize on border:** Enabled
 - **Logo/wallpaper:** Disabled
 - **Dwindle layout:** preserve_split = true (default behavior)
@@ -150,7 +154,7 @@ Managed with GNU Stow. Structure:
 ```
 dotfiles/
   ghostty/
-    .config/ghostty/config.ghostty
+    .config/ghostty/config
   hypr/
     .config/hypr/hyprland.lua      (main entry - requires sub-modules)
     .config/hypr/monitor.lua       (monitor configuration)

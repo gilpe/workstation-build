@@ -36,7 +36,10 @@ This is an iterative Arch Linux workstation build project. The goal is to create
 - Hyprland SUPER+Enter opens terminal, SUPER+Esc closes window, SUPER+E opens superfile, SUPER+Space opens bemenu launcher
 - Hyprland animations optimized for performance (fade disabled, faster speeds)
 - Hyprland smart gaps enabled, resize on border enabled, logo/wallpaper disabled
+- Hyprland gaps set to 3px inner, 10px outer
 - Hyprland dwindle layout configured with preserve_split = true (default behavior)
+- Ghostty padding set to 0 (content top-left aligned, minimal margin)
+- Ghostty config file renamed from config.ghostty to config (correct filename for Ghostty)
 
 ### What's Pending
 - Limine bootloader configuration (TODO in install.sh)
