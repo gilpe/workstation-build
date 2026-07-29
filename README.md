@@ -143,6 +143,19 @@ Dotfiles are managed with GNU Stow. Configuration files are stored in `dotfiles/
 - **Logo/wallpaper:** Disabled
 - **Dwindle layout:** preserve_split = true (default behavior)
 
+### Neovim
+- **Config:** Modular Lua configuration
+- **Leader key:** Space
+- **Indentation:** 4 spaces (2 for lua/vim/sh/bash/zsh)
+- **Features:** Line numbers, mouse support, system clipboard, persistent undo
+- **Keybindings:** VSCode-like (Ctrl+S → `<leader>s`, Ctrl+P → `<leader>p`, etc.)
+- **Theme:** Uses terminal colors (matches Ghostty's Atom One Dark)
+- **Structure:**
+  - `init.lua` - Entry point
+  - `lua/config/options.lua` - Editor options
+  - `lua/config/keymaps.lua` - VSCode-like keybindings
+  - `lua/config/autocmds.lua` - Autocommands (highlight on yank, restore cursor position, auto-reload)
+
 ### YAY
 - Version: 13.0.1
 - Installed from AUR
@@ -166,6 +179,11 @@ dotfiles/
     .config/hypr/misc.lua          (env vars, autostart, misc settings)
   lazygit/
     .config/lazygit/config.yml
+  nvim/
+    .config/nvim/init.lua          (entry point)
+    .config/nvim/lua/config/options.lua
+    .config/nvim/lua/config/keymaps.lua
+    .config/nvim/lua/config/autocmds.lua
   opencode/
     .config/opencode/opencode.jsonc
   superfile/
@@ -179,7 +197,7 @@ dotfiles/
 Each package mirrors the home directory structure. Deploy with:
 ```bash
 cd ~/workstation-build/dotfiles
-stow -t ~ ghostty hypr lazygit opencode superfile gh
+stow -t ~ ghostty hypr lazygit nvim opencode superfile gh
 ```
 
 **Note:** `gh/hosts.yml` is not tracked (contains OAuth tokens).
@@ -189,7 +207,7 @@ stow -t ~ ghostty hypr lazygit opencode superfile gh
 - [x] Configure display manager (ly with Hyprland)
 - [x] Configure TTY font for better readability
 - [x] Configure wireless regulatory domain
+- [x] Configure Neovim (base config with VSCode-like keybindings)
 - [ ] Configure Limine bootloader
 - [ ] Set up shell environment (zsh, prompt, aliases)
-- [ ] Configure Neovim
 - [ ] Add more development tools as needed

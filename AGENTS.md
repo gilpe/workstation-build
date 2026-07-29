@@ -26,7 +26,7 @@ This is an iterative Arch Linux workstation build project. The goal is to create
 - Audio stack (PipeWire)
 - Bluetooth, printing, networking configured
 - GitHub CLI for authentication
-- Dotfiles managed with GNU Stow (ghostty, hypr, lazygit, opencode, superfile, gh)
+- Dotfiles managed with GNU Stow (ghostty, hypr, lazygit, nvim, opencode, superfile, gh)
 - Display manager (ly) configured with Hyprland as default session
 - TTY font configured (ter-132n for QHD+)
 - Wireless regulatory domain configured (ES)
@@ -40,11 +40,17 @@ This is an iterative Arch Linux workstation build project. The goal is to create
 - Hyprland dwindle layout configured with preserve_split = true (default behavior)
 - Ghostty padding set to 0 (content top-left aligned, minimal margin)
 - Ghostty config file renamed from config.ghostty to config (correct filename for Ghostty)
+- Neovim configured with modular Lua setup (options, keymaps, autocmds)
+- Neovim VSCode-like keybindings (leader = Space, second key matches VSCode Ctrl+key)
+- Neovim 4 spaces indentation (2 for lua/vim/sh/bash/zsh)
+- Neovim system clipboard integration enabled
+- Neovim persistent undo history enabled
+- Neovim highlight on yank and restore cursor position autocommands
+- Neovim uses terminal colors (matches Ghostty's Atom One Dark)
 
 ### What's Pending
 - Limine bootloader configuration (TODO in install.sh)
 - Shell environment (zsh config, prompt, aliases)
-- Neovim configuration
 - Additional development tools as needed
 ## Conventions
 
