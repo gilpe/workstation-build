@@ -87,7 +87,8 @@ install_pacman_packages() {
         ttf-jetbrains-mono-nerd \
         opencode \
         superfile \
-        bemenu
+        bemenu \
+        gsettings-backend
     
     success "Pacman packages installed"
 }
@@ -270,7 +271,26 @@ EOF
     success "Console log level set to quiet"
 }
 
-# Section 10: Limine configuration
+# Section 10: Configure dark theme
+configure_dark_theme() {
+    if ! command -v gsettings &> /dev/null; then
+        error "gsettings is not installed. Run section 1 first."
+        return 1
+    fi
+
+    current_scheme=$(gsettings get org.gnome.desktop.interface color-scheme 2>/dev/null)
+    if [ "$current_scheme" = "'prefer-dark'" ]; then
+        success "Dark theme already configured"
+        return 0
+    fi
+
+    info "Setting system theme preference to dark..."
+    gsettings set org.gnome.desktop.interface color-scheme 'prefer-dark'
+    
+    success "Dark theme configured"
+}
+
+# Section 11: Limine configuration
 configure_limine() {
     warn "Limine configuration not yet implemented"
     # TODO: Add limine configuration when ready
@@ -335,6 +355,12 @@ main() {
 
     if confirm "Set quiet console log level (prevents kernel warnings on TTY)?"; then
         configure_quiet_console
+    fi
+
+    echo
+
+    if confirm "Configure dark theme (system-wide preference)?"; then
+        configure_dark_theme
     fi
 
     echo

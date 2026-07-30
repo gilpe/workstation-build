@@ -96,6 +96,17 @@ Dotfiles are managed with GNU Stow. Configuration files are stored in `dotfiles/
 - **Note:** Only affects TTY (ly login screen, raw terminals). Does not affect Hyprland or GUI apps.
 - **Available terminus fonts:** `ter-112n` to `ter-132n` (increasing sizes)
 
+### Theme Configuration
+- **System preference:** Dark theme (set via `gsettings`)
+- **GTK3 apps:** Use `Adwaita:dark` (built into GTK3, no extra package)
+- **GTK4/libadwaita apps:** Read `color-scheme` preference via `gsettings`
+- **Config files:**
+  - `~/.config/hypr/misc.lua` - Sets `GTK_THEME` env var and runs `gsettings` on startup
+  - `gsettings` schema: `org.gnome.desktop.interface color-scheme`
+- **Minimal dependencies:** Only `gsettings-backend` package (provides dconf backend)
+- **To change theme preference:** `gsettings set org.gnome.desktop.interface color-scheme 'prefer-light'` or `'prefer-dark'`
+- **Note:** Future work will add on-demand theme switching via keybind
+
 ### Power Management
 - power-profiles-daemon
 - zram-generator
@@ -111,6 +122,7 @@ Dotfiles are managed with GNU Stow. Configuration files are stored in `dotfiles/
 - opencode
 - superfile
 - bemenu
+- gsettings-backend
 
 ### Fonts
 - ttf-jetbrains-mono-nerd

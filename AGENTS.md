@@ -47,6 +47,10 @@ This is an iterative Arch Linux workstation build project. The goal is to create
 - Neovim persistent undo history enabled
 - Neovim highlight on yank and restore cursor position autocommands
 - Neovim uses terminal colors (matches Ghostty's Atom One Dark)
+- Dark theme set as system default (minimal GNOME deps: only gsettings-backend)
+- GTK3 apps use Adwaita:dark (built into GTK3)
+- GTK4/libadwaita apps read color-scheme preference via gsettings
+- Hyprland sets GTK_THEME env var and runs gsettings on startup
 
 ### What's Pending
 - Limine bootloader configuration (TODO in install.sh)
