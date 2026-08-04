@@ -50,12 +50,14 @@ install_pacman_packages() {
         pipewire-pulse \
         wireplumber \
         libpulse \
-        gst-plugin-pipewire
+        gst-plugin-pipewire \
+        wiremix
     
     # Bluetooth
     sudo pacman -S --needed --noconfirm \
         bluez \
-        bluez-utils
+        bluez-utils \
+        bluetui
     
     # Printing
     sudo pacman -S --needed --noconfirm \
@@ -120,7 +122,8 @@ install_aur_packages() {
     
     info "Installing AUR packages..."
     yay -S --needed --noconfirm \
-        brave-bin
+        brave-bin \
+        wlctl-bin
     
     success "AUR packages installed"
 }
@@ -158,7 +161,7 @@ deploy_dotfiles() {
     
     info "Deploying dotfiles with stow..."
     
-    for package in ghostty hypr lazygit nvim opencode superfile gh; do
+    for package in ghostty hypr lazygit nvim opencode superfile gh wiremix wlctl bluetui; do
         if [ -d "$DOTFILES_DIR/$package" ]; then
             stow -t ~ "$package" --restow
             success "Deployed $package"

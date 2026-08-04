@@ -62,10 +62,12 @@ Dotfiles are managed with GNU Stow. Configuration files are stored in `dotfiles/
 - wireplumber
 - libpulse
 - gst-plugin-pipewire
+- **wiremix** (TUI mixer for PipeWire)
 
 ### Bluetooth
 - bluez
 - bluez-utils
+- **bluetui** (TUI bluetooth manager)
 
 ### Printing
 - cups
@@ -123,6 +125,7 @@ Dotfiles are managed with GNU Stow. Configuration files are stored in `dotfiles/
 - superfile
 - bemenu
 - gsettings-backend
+- **wlctl** (TUI wifi/ethernet/vpn manager for NetworkManager)
 
 ### Fonts
 - ttf-jetbrains-mono-nerd
@@ -148,6 +151,8 @@ Dotfiles are managed with GNU Stow. Configuration files are stored in `dotfiles/
 - **SUPER + Esc:** Close window
 - **SUPER + E:** Opens file manager (superfile in ghostty)
 - **SUPER + Space:** Opens launcher (bemenu)
+- **SUPER + W:** Opens wifi manager (wlctl)
+- **SUPER + B:** Opens bluetooth manager (bluetui)
 - **Animations:** Lightweight (fade disabled, faster speeds)
 - **Smart gaps:** Enabled (no gaps when single window)
 - **Gaps:** 3px inner, 10px outer

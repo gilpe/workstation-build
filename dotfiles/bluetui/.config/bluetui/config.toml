@@ -1,0 +1,9 @@
+# bluetui configuration
+# TUI for managing bluetooth on Linux
+# Uses all defaults - customize as needed
+
+# Example configurations:
+# layout = "SpaceAround"
+# width = "auto"
+# toggle_scanning = "s"
+# esc_quit = false

@@ -1,0 +1,8 @@
+# Wiremix configuration for PipeWire TUI mixer
+# Uses all defaults - customize as needed
+
+# Example configurations:
+# mouse = true
+# peaks = "auto"
+# tab = "playback"
+# max_volume_percent = 150.0

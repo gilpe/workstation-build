@@ -23,17 +23,19 @@ This is an iterative Arch Linux workstation build project. The goal is to create
 - Hyprland window manager
 - Ghostty terminal
 - Neovim editor
-- Audio stack (PipeWire)
+- Audio stack (PipeWire + wiremix TUI mixer)
+- Network stack (NetworkManager + wlctl TUI wifi manager)
+- Bluetooth stack (Bluez + bluetui TUI manager)
 - Bluetooth, printing, networking configured
 - GitHub CLI for authentication
-- Dotfiles managed with GNU Stow (ghostty, hypr, lazygit, nvim, opencode, superfile, gh)
+- Dotfiles managed with GNU Stow (ghostty, hypr, lazygit, nvim, opencode, superfile, wiremix, wlctl, bluetui, gh)
 - Display manager (ly) configured with Hyprland as default session
 - TTY font configured (ter-132n for QHD+)
 - Wireless regulatory domain configured (ES)
 - Console log level set to quiet (prevents kernel warnings on TTY)
 - Hyprland config split into modular Lua files (monitor, input, decoration, layouts, animations, bindings, windowrules, misc)
 - Hyprland keyboard layout set to ES (Spanish)
-- Hyprland SUPER+Enter opens terminal, SUPER+Esc closes window, SUPER+E opens superfile, SUPER+Space opens bemenu launcher
+- Hyprland SUPER+Enter opens terminal, SUPER+Esc closes window, SUPER+E opens superfile, SUPER+Space opens bemenu launcher, SUPER+W opens wlctl wifi manager, SUPER+B opens bluetui bluetooth manager
 - Hyprland animations optimized for performance (fade disabled, faster speeds)
 - Hyprland smart gaps enabled, resize on border enabled, logo/wallpaper disabled
 - Hyprland gaps set to 3px inner, 10px outer

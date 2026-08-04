@@ -1,0 +1,10 @@
+# wlctl configuration
+# TUI for NetworkManager wifi/ethernet/vpn management
+# Uses all defaults - customize as needed
+
+# Example configurations:
+# switch = "r"
+# mode = "station"
+# esc_quit = false
+# vpn = "v"
+# refresh_interval_ms = 1000
