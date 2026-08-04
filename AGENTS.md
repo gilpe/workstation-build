@@ -23,9 +23,11 @@ This is an iterative Arch Linux workstation build project. The goal is to create
 - Hyprland window manager
 - Ghostty terminal
 - Neovim editor
-- Audio stack (PipeWire + wiremix TUI mixer)
+- Audio stack (PipeWire + wiremix TUI mixer + RTKit for real-time scheduling)
 - Network stack (NetworkManager + wlctl TUI wifi manager)
 - Bluetooth stack (Bluez + bluetui TUI manager)
+- Bluetooth stability configured (FastConnectable + ControllerMode bredr for AirPods Pro)
+- Broadcom Bluetooth firmware installed (broadcom-bt-firmware from AUR)
 - Bluetooth, printing, networking configured
 - GitHub CLI for authentication
 - Dotfiles managed with GNU Stow (ghostty, hypr, lazygit, nvim, opencode, superfile, wiremix, wlctl, bluetui, gh)

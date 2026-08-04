@@ -63,11 +63,21 @@ Dotfiles are managed with GNU Stow. Configuration files are stored in `dotfiles/
 - libpulse
 - gst-plugin-pipewire
 - **wiremix** (TUI mixer for PipeWire)
+- **rtkit** (RealtimeKit - required for PipeWire real-time scheduling)
 
 ### Bluetooth
 - bluez
 - bluez-utils
 - **bluetui** (TUI bluetooth manager)
+
+### Bluetooth Configuration
+- **Config file:** `/etc/bluetooth/main.conf`
+- **Settings applied:**
+  - `FastConnectable = true` - Reduces connection drops by allowing faster reconnections
+  - `ControllerMode = bredr` - More stable for audio-only devices (disables BLE)
+- **Purpose:** Fixes AirPods Pro disconnections and audio microcuts caused by missing firmware and unstable defaults
+- **AUR firmware:** `broadcom-bt-firmware` - Provides missing firmware for Broadcom BT adapters (BCM4350C5)
+- **Note:** Restart PipeWire services after config changes: `systemctl --user restart pipewire pipewire-pulse wireplumber`
 
 ### Printing
 - cups
@@ -134,6 +144,7 @@ Dotfiles are managed with GNU Stow. Configuration files are stored in `dotfiles/
 ### AUR Packages (via yay)
 - yay
 - brave-bin
+- broadcom-bt-firmware
 
 ## Configuration
 

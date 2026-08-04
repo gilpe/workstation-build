@@ -51,7 +51,8 @@ install_pacman_packages() {
         wireplumber \
         libpulse \
         gst-plugin-pipewire \
-        wiremix
+        wiremix \
+        rtkit
     
     # Bluetooth
     sudo pacman -S --needed --noconfirm \
@@ -123,7 +124,8 @@ install_aur_packages() {
     info "Installing AUR packages..."
     yay -S --needed --noconfirm \
         brave-bin \
-        wlctl-bin
+        wlctl-bin \
+        broadcom-bt-firmware
     
     success "AUR packages installed"
 }
@@ -293,6 +295,41 @@ configure_dark_theme() {
     success "Dark theme configured"
 }
 
+# Section 12: Configure Bluetooth stability
+configure_bluetooth_stability() {
+    if [ ! -f /etc/bluetooth/main.conf ]; then
+        error "/etc/bluetooth/main.conf not found"
+        return 1
+    fi
+
+    if grep -q "^FastConnectable = true" /etc/bluetooth/main.conf && \
+       grep -q "^ControllerMode = bredr" /etc/bluetooth/main.conf; then
+        success "Bluetooth stability already configured"
+        return 0
+    fi
+
+    info "Configuring Bluetooth stability for audio devices..."
+    
+    if [ -f /etc/bluetooth/main.conf ]; then
+        warn "Backing up /etc/bluetooth/main.conf to /etc/bluetooth/main.conf.bak"
+        sudo cp /etc/bluetooth/main.conf /etc/bluetooth/main.conf.bak
+    fi
+
+    sudo tee -a /etc/bluetooth/main.conf > /dev/null << 'EOF'
+
+# Bluetooth stability configuration (for AirPods Pro and similar devices)
+# FastConnectable reduces connection drops by allowing faster reconnections
+FastConnectable = true
+# ControllerMode bredr is more stable for audio-only devices
+ControllerMode = bredr
+EOF
+
+    info "Restarting bluetooth service..."
+    sudo systemctl restart bluetooth
+    
+    success "Bluetooth stability configured. Restart audio services or reboot to apply."
+}
+
 # Section 11: Limine configuration
 configure_limine() {
     warn "Limine configuration not yet implemented"
@@ -364,6 +401,12 @@ main() {
 
     if confirm "Configure dark theme (system-wide preference)?"; then
         configure_dark_theme
+    fi
+
+    echo
+
+    if confirm "Configure Bluetooth stability (fixes AirPods Pro disconnections)?"; then
+        configure_bluetooth_stability
     fi
 
     echo
