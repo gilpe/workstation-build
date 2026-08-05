@@ -90,7 +90,7 @@ install_pacman_packages() {
         ttf-jetbrains-mono-nerd \
         opencode \
         superfile \
-        bemenu \
+        fuzzel \
         gsettings-backend
     
     success "Pacman packages installed"
@@ -163,7 +163,7 @@ deploy_dotfiles() {
     
     info "Deploying dotfiles with stow..."
     
-    for package in ghostty hypr lazygit nvim opencode superfile gh wiremix wlctl bluetui; do
+    for package in ghostty hypr lazygit nvim opencode superfile gh wiremix wlctl bluetui fuzzel; do
         if [ -d "$DOTFILES_DIR/$package" ]; then
             stow -t ~ "$package" --restow
             success "Deployed $package"

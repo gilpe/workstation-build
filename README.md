@@ -133,7 +133,7 @@ Dotfiles are managed with GNU Stow. Configuration files are stored in `dotfiles/
 - stow
 - opencode
 - superfile
-- bemenu
+- fuzzel
 - gsettings-backend
 - **wlctl** (TUI wifi/ethernet/vpn manager for NetworkManager)
 
@@ -161,7 +161,7 @@ Dotfiles are managed with GNU Stow. Configuration files are stored in `dotfiles/
 - **SUPER + Enter:** Opens terminal (ghostty)
 - **SUPER + Esc:** Close window
 - **SUPER + E:** Opens file manager (superfile in ghostty)
-- **SUPER + Space:** Opens launcher (bemenu)
+- **SUPER + Space:** Opens launcher (fuzzel)
 - **SUPER + W:** Opens wifi manager (wlctl)
 - **SUPER + B:** Opens bluetooth manager (bluetui)
 - **Animations:** Lightweight (fade disabled, faster speeds)
@@ -220,6 +220,8 @@ dotfiles/
     .config/superfile/theme/*.toml
   gh/
     .config/gh/config.yml
+  fuzzel/
+    .config/fuzzel/fuzzel.ini
 ```
 
 Each package mirrors the home directory structure. Deploy with:

@@ -1,6 +1,6 @@
 local terminal    = "ghostty"
 local fileManager = terminal .. " -e spf"
-local menu        = "bemenu-run"
+local menu        = "fuzzel"
 
 local mainMod = "SUPER"
 
