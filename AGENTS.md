@@ -57,6 +57,7 @@ This is an iterative Arch Linux workstation build project. The goal is to create
 - Hyprland sets GTK_THEME env var and runs gsettings on startup
 - Papirus-Dark icon theme installed and configured for fuzzel
 - Noto Color Emoji font installed (noto-fonts-emoji)
+- Pacman configured with ILoveCandy (Pac-Man progress bar) and VerbosePkgLists
 
 ### What's Pending
 - Limine bootloader configuration (TODO in install.sh)

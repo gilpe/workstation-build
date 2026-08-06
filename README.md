@@ -79,6 +79,14 @@ Dotfiles are managed with GNU Stow. Configuration files are stored in `dotfiles/
 - **AUR firmware:** `broadcom-bt-firmware` - Provides missing firmware for Broadcom BT adapters (BCM4350C5)
 - **Note:** Restart PipeWire services after config changes: `systemctl --user restart pipewire pipewire-pulse wireplumber`
 
+### Pacman Configuration
+- **Config file:** `/etc/pacman.conf`
+- **Settings applied:**
+  - `ILoveCandy` - Replaces progress bar with a Pac-Man animation
+  - `VerbosePkgLists` - Shows full package versions during installation
+- **Purpose:** Makes package installation more visually appealing and informative
+- **Note:** Backup created at `/etc/pacman.conf.bak` before modifications
+
 ### Printing
 - cups
 - cups-pk-helper

@@ -332,7 +332,32 @@ EOF
     success "Bluetooth stability configured. Restart audio services or reboot to apply."
 }
 
-# Section 11: Limine configuration
+# Section 11: Configure pacman (ILoveCandy + VerbosePkgLists)
+configure_pacman() {
+    if [ ! -f /etc/pacman.conf ]; then
+        error "/etc/pacman.conf not found"
+        return 1
+    fi
+
+    if grep -q "^ILoveCandy" /etc/pacman.conf; then
+        success "Pacman already configured with ILoveCandy"
+        return 0
+    fi
+
+    info "Configuring pacman with ILoveCandy and VerbosePkgLists..."
+    
+    if [ -f /etc/pacman.conf ]; then
+        warn "Backing up /etc/pacman.conf to /etc/pacman.conf.bak"
+        sudo cp /etc/pacman.conf /etc/pacman.conf.bak
+    fi
+
+    sudo sed -i '/^Color$/a ILoveCandy' /etc/pacman.conf
+    sudo sed -i 's/^#VerbosePkgLists$/VerbosePkgLists/' /etc/pacman.conf
+    
+    success "Pacman configured with ILoveCandy and VerbosePkgLists"
+}
+
+# Section 12: Limine configuration
 configure_limine() {
     warn "Limine configuration not yet implemented"
     # TODO: Add limine configuration when ready
@@ -409,6 +434,12 @@ main() {
 
     if confirm "Configure Bluetooth stability (fixes AirPods Pro disconnections)?"; then
         configure_bluetooth_stability
+    fi
+
+    echo
+
+    if confirm "Configure pacman (ILoveCandy + VerbosePkgLists)?"; then
+        configure_pacman
     fi
 
     echo
