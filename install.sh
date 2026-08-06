@@ -92,6 +92,7 @@ install_pacman_packages() {
         superfile \
         fuzzel \
         papirus-icon-theme \
+        noto-fonts-emoji \
         gsettings-backend
     
     success "Pacman packages installed"

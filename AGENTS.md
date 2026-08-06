@@ -56,6 +56,7 @@ This is an iterative Arch Linux workstation build project. The goal is to create
 - GTK4/libadwaita apps read color-scheme preference via gsettings
 - Hyprland sets GTK_THEME env var and runs gsettings on startup
 - Papirus-Dark icon theme installed and configured for fuzzel
+- Noto Color Emoji font installed (noto-fonts-emoji)
 
 ### What's Pending
 - Limine bootloader configuration (TODO in install.sh)

@@ -141,6 +141,7 @@ Dotfiles are managed with GNU Stow. Configuration files are stored in `dotfiles/
 ### Fonts
 - ttf-jetbrains-mono-nerd
 - terminus-font
+- noto-fonts-emoji
 
 ### AUR Packages (via yay)
 - yay
