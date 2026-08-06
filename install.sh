@@ -165,7 +165,7 @@ deploy_dotfiles() {
     
     info "Deploying dotfiles with stow..."
     
-    for package in ghostty hypr lazygit nvim opencode superfile gh wiremix wlctl bluetui fuzzel; do
+    for package in ghostty hypr lazygit nvim opencode superfile wiremix wlctl bluetui fuzzel; do
         if [ -d "$DOTFILES_DIR/$package" ]; then
             stow -t ~ "$package" --restow
             success "Deployed $package"

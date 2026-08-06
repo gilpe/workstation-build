@@ -30,7 +30,7 @@ This is an iterative Arch Linux workstation build project. The goal is to create
 - Broadcom Bluetooth firmware installed (broadcom-bt-firmware from AUR)
 - Bluetooth, printing, networking configured
 - GitHub CLI for authentication
-- Dotfiles managed with GNU Stow (ghostty, hypr, lazygit, nvim, opencode, superfile, wiremix, wlctl, bluetui, gh, fuzzel)
+- Dotfiles managed with GNU Stow (ghostty, hypr, lazygit, nvim, opencode, superfile, wiremix, wlctl, bluetui, fuzzel)
 - Display manager (ly) configured with Hyprland as default session
 - TTY font configured (ter-132n for QHD+)
 - Wireless regulatory domain configured (ES)
