@@ -1,21 +1,431 @@
-gui:
-  theme:
-    activeBorderColor:
-      - '#61afef'
-      - bold
-    inactiveBorderColor:
-      - '#5c6370'
-    optionsTextColor:
-      - '#abb2bf'
-    selectedLineBgColor:
-      - '#2c313c'
-    cherryPickedCommitBgColor:
-      - '#3e4451'
-    cherryPickedCommitFgColor:
-      - '#c678dd'
-    unstagedChangesColor:
-      - '#e06c75'
-    defaultFgColor:
-      - '#abb2bf'
-    searchingActiveBorderColor:
-      - '#e5c07b'
+# Lazygit Configuration Reference
+# Uncomment and modify only the settings you want to change from defaults
+
+# ============================================================================
+# GUI SETTINGS
+# ============================================================================
+
+# gui:
+#   # Custom colors for commit authors
+#   authorColors: {}
+#
+#   # Custom branch color patterns
+#   branchColorPatterns: {}
+#
+#   # Custom icons for files
+#   customIcons:
+#     filenames: {}
+#     extensions: {}
+#
+#   # Scroll settings
+#   scrollHeight: 2
+#   scrollPastBottom: true
+#   scrollOffMargin: 2
+#   scrollOffBehavior: margin  # margin | jump
+#
+#   # Tab width for diffs
+#   tabWidth: 4
+#
+#   # Mouse capture (makes text selection harder)
+#   mouseEvents: true
+#
+#   # Skip confirmation warnings
+#   skipAmendWarning: false
+#   skipDiscardChangeWarning: false
+#   skipStashWarning: false
+#   skipNoStagedFilesWarning: false
+#   skipRewordInEditorWarning: false
+#   skipSwitchWorktreeOnCheckoutWarning: false
+#
+#   # Layout
+#   sidePanelWidth: 0.3333
+#   expandFocusedSidePanel: false
+#   expandedSidePanelWeight: 2
+#   shrinkSidePanelsToContent: false
+#
+#   # Side panels order (tabs grouped together)
+#   sidePanels:
+#     - [status]
+#     - [files, worktrees, submodules]
+#     - [branches, remotes, tags]
+#     - [commits, reflog]
+#     - [stash]
+#
+#   # Split mode for main window
+#   mainPanelSplitMode: flexible  # horizontal | vertical | flexible
+#   enlargedSideViewLocation: left  # left | top
+#
+#   # Staging view
+#   wrapLinesInStagingView: true
+#   useHunkModeInStagingView: true
+#
+#   # Language and time format
+#   language: auto  # auto | en | zh-CN | zh-TW | pl | nl | ja | ko | ru | pt
+#   timeFormat: 02 Jan 06
+#   shortTimeFormat: 3:04PM
+#
+#   # Theme colors
+#   theme:
+#     activeBorderColor: [green, bold]
+#     inactiveBorderColor: [default]
+#     searchingActiveBorderColor: [cyan, bold]
+#     optionsTextColor: [blue]
+#     selectedLineBgColor: [blue]
+#     inactiveViewSelectedLineBgColor: [bold]
+#     cherryPickedCommitFgColor: [blue]
+#     cherryPickedCommitBgColor: [cyan]
+#     markedBaseCommitFgColor: [blue]
+#     markedBaseCommitBgColor: [yellow]
+#     unstagedChangesColor: [red]
+#     defaultFgColor: [default]
+#
+#   # Commit display
+#   commitLength:
+#     show: true
+#   commitAuthorShortLength: 2
+#   commitAuthorLongLength: 17
+#   commitHashLength: 8
+#   showBranchCommitHash: false
+#   showDivergenceFromBaseBranch: none  # none | onlyArrow | arrowAndNumber
+#
+#   # UI elements visibility
+#   showListFooter: true
+#   showFileTree: true
+#   showRootItemInFileTree: true
+#   fileTreeSortOrder: mixed  # mixed | filesFirst | foldersFirst
+#   fileTreeSortCaseSensitive: true
+#   showNumstatInFilesView: false
+#   showRandomTip: true
+#   showCommandLog: true
+#   showBottomLine: true
+#   showPanelJumps: true
+#   commandLogSize: 8
+#
+#   # Nerd fonts (requires Nerd Font installed)
+#   nerdFontsVersion: ""  # "" | "2" | "3"
+#   showFileIcons: true
+#
+#   # Window settings
+#   splitDiff: auto  # auto | always
+#   screenMode: normal  # normal | half | full
+#   border: rounded  # rounded | single | double | hidden | bold
+#   animateExplosion: true
+#   portraitMode: auto  # auto | always | never
+#   portraitModeAutoMaxWidth: 84
+#   portraitModeAutoMinHeight: 46
+#
+#   # Search/filter
+#   filterMode: substring  # substring | fuzzy
+#
+#   # Spinner animation
+#   spinner:
+#     frames: [●∙∙, ∙●∙, ∙∙●, ∙●∙]
+#     rate: 180
+#
+#   # Status panel
+#   statusPanelView: dashboard  # dashboard | allBranchesLog
+#   switchToFilesAfterStashPop: true
+#   switchToFilesAfterStashApply: true
+#   switchTabsWithPanelJumpKeys: false
+
+# ============================================================================
+# GIT SETTINGS
+# ============================================================================
+
+# git:
+#   # Custom diff renderers
+#   diffRenderers: []
+#
+#   # Commit settings
+#   commit:
+#     signOff: false
+#     autoWrapCommitMessage: true
+#     autoWrapWidth: 72
+#
+#   # Merge settings
+#   merging:
+#     manualCommit: false
+#     args: ""
+#     squashMergeMessage: "Squash merge {{selectedRef}} into {{currentBranch}}"
+#
+#   # Main branches
+#   mainBranches: [master, main]
+#
+#   # Skip hooks prefix
+#   skipHookPrefix: WIP
+#
+#   # Auto operations
+#   autoFetch: true
+#   autoRefresh: true
+#   autoDetectExternalChanges: true
+#   autoForwardBranches: onlyMainBranches  # none | onlyMainBranches | allBranches
+#   fetchAll: true
+#   autoStageResolvedConflicts: true
+#
+#   # Log commands
+#   branchLogCmd: "git log --graph --color=always --abbrev-commit --decorate --date=relative --pretty=medium {{branchName}} --"
+#   allBranchesLogCmds:
+#     - "git log --graph --all --color=always --abbrev-commit --decorate --date=relative --pretty=medium"
+#
+#   # Diff settings
+#   ignoreWhitespaceInDiffView: false
+#   diffContextSize: 3
+#   renameSimilarityThreshold: 50
+#
+#   # GPG and force push
+#   overrideGpg: false
+#   disableForcePushing: false
+#
+#   # Commit/branch prefixes
+#   commitPrefix: []
+#   commitPrefixes: {}
+#   branchPrefix: ""
+#
+#   # Emoji parsing in commits
+#   parseEmoji: false
+#
+#   # Log display
+#   log:
+#     order: topo-order  # date-order | author-date-order | topo-order | default
+#     showGraph: always  # always | never | when-maximised
+#     showWholeGraph: false
+#
+#   # Branch sorting
+#   localBranchSortOrder: date  # date | recency | alphabetical
+#   remoteBranchSortOrder: date  # date | alphabetical
+#
+#   # Clipboard
+#   truncateCopiedCommitHashesTo: 12
+
+# ============================================================================
+# WORKTREE SETTINGS
+# ============================================================================
+
+# worktree:
+#   defaultPath: ""
+
+# ============================================================================
+# UPDATE SETTINGS
+# ============================================================================
+
+# update:
+#   method: prompt  # prompt | background | never
+#   days: 14
+
+# ============================================================================
+# REFRESHER SETTINGS
+# ============================================================================
+
+# refresher:
+#   refreshInterval: 10
+#   fetchInterval: 60
+#   externalChangeCheckInterval: 2
+
+# ============================================================================
+# GLOBAL SETTINGS
+# ============================================================================
+
+# confirmOnQuit: false
+# quitOnTopLevelReturn: false
+
+# ============================================================================
+# OS SETTINGS
+# ============================================================================
+
+# os:
+#   edit: ""
+#   editAtLine: ""
+#   editAtLineAndWait: ""
+#   editInTerminal: false
+#   openDirInEditor: ""
+#   editPreset: ""
+#   open: ""
+#   openLink: ""
+#   copyToClipboardCmd: ""
+#   readFromClipboardCmd: ""
+#   shellFunctionsFile: ""
+
+# disableStartupPopups: false
+# customCommands: []
+# services: {}
+# notARepository: prompt  # prompt | create | skip | quit
+# promptToReturnFromSubprocess: true
+
+# ============================================================================
+# KEYBINDINGS
+# ============================================================================
+
+# keybinding:
+#   universal:
+#     quit: [q, <ctrl+c>]
+#     suspendApp: <ctrl+z>
+#     return: <esc>
+#     quitWithoutChangingDirectory: Q
+#     togglePanel: <tab>
+#     prevItem: [<up>, k]
+#     nextItem: [<down>, j]
+#     prevPage: ','
+#     nextPage: .
+#     scrollLeft: H
+#     scrollRight: L
+#     gotoTop: [<, <home>]
+#     gotoBottom: ['>', <end>]
+#     toggleRangeSelect: v
+#     rangeSelectDown: <shift+down>
+#     rangeSelectUp: <shift+up>
+#     prevBlock: [<left>, h, <backtab>]
+#     nextBlock: [<right>, l, <tab>]
+#     jumpToBlock: ["1", "2", "3", "4", "5"]
+#     focusMainView: "0"
+#     nextMatch: "n"
+#     prevMatch: "N"
+#     startSearch: /
+#     moveWordLeft: <ctrl+left>
+#     moveWordRight: <ctrl+right>
+#     backspaceWord: <ctrl+backspace>
+#     forwardDeleteWord: <ctrl+delete>
+#     optionMenu: '?'
+#     select: <space>
+#     goInto: <enter>
+#     confirm: <enter>
+#     confirmMenu: <enter>
+#     confirmSuggestion: <enter>
+#     confirmInEditor: [<ctrl+enter>, <ctrl+s>]
+#     remove: d
+#     new: "n"
+#     newWorktree: w
+#     edit: e
+#     openFile: o
+#     scrollUpMain: [<pgup>, K, <ctrl+u>]
+#     scrollDownMain: [<pgdown>, J, <ctrl+d>]
+#     executeShellCommand: ':'
+#     createRebaseOptionsMenu: m
+#     pushFiles: P
+#     pullFiles: p
+#     refresh: R
+#     createPatchOptionsMenu: <ctrl+p>
+#     nextTab: ']'
+#     prevTab: '['
+#     nextScreenMode: +
+#     prevScreenMode: _
+#     cycleDiffRenderers: '|'
+#     cycleDiffRenderersReverse: \
+#     undo: z
+#     redo: Z
+#     filteringMenu: <ctrl+s>
+#     diffingMenu: [W, <ctrl+e>]
+#     copyToClipboard: <ctrl+o>
+#     openRecentRepos: <ctrl+r>
+#     submitEditorText: <enter>
+#     extrasMenu: '@'
+#     toggleWhitespaceInDiffView: <ctrl+w>
+#     increaseContextInDiffView: '}'
+#     decreaseContextInDiffView: '{'
+#     increaseRenameSimilarityThreshold: )
+#     decreaseRenameSimilarityThreshold: (
+#     openDiffTool: <ctrl+t>
+#     editConfig: <alt+shift+c>
+#
+#   status:
+#     checkForUpdate: u
+#     recentRepos: <enter>
+#     allBranchesLogGraph: a
+#     allBranchesLogGraphReverse: A
+#
+#   files:
+#     commitChanges: c
+#     commitChangesWithoutHook: w
+#     amendLastCommit: A
+#     commitChangesWithEditor: C
+#     findBaseCommitForFixup: <ctrl+f>
+#     confirmDiscard: x
+#     ignoreFile: i
+#     refreshFiles: r
+#     stashAllChanges: s
+#     viewStashOptions: S
+#     toggleStagedAll: a
+#     viewResetOptions: D
+#     fetch: f
+#     toggleTreeView: '`'
+#     openMergeOptions: M
+#     openStatusFilter: <ctrl+b>
+#     copyFileInfoToClipboard: "y"
+#     collapseAll: '-'
+#     expandAll: =
+#
+#   branches:
+#     createPullRequest: o
+#     viewPullRequestOptions: O
+#     openPullRequestInBrowser: G
+#     copyPullRequestURL: <ctrl+y>
+#     checkoutBranchByName: c
+#     forceCheckoutBranch: F
+#     checkoutPreviousBranch: '-'
+#     rebaseBranch: r
+#     renameBranch: R
+#     mergeIntoCurrentBranch: M
+#     moveCommitsToNewBranch: "N"
+#     viewGitFlowOptions: i
+#     fastForward: f
+#     createTag: T
+#     pushTag: P
+#     setUpstream: u
+#     fetchRemote: f
+#     addForkRemote: F
+#     sortOrder: s
+#
+#   commits:
+#     squashDown: s
+#     renameCommit: r
+#     renameCommitWithEditor: R
+#     viewResetOptions: g
+#     markCommitAsFixup: f
+#     setFixupMessage: c
+#     createFixupCommit: F
+#     squashAboveCommits: S
+#     moveDownCommit: [<ctrl+j>, <alt-down>]
+#     moveUpCommit: [<ctrl+k>, <alt-up>]
+#     amendToCommit: A
+#     resetCommitAuthor: a
+#     pickCommit: p
+#     revertCommit: t
+#     cherryPickCopy: C
+#     pasteCommits: V
+#     markCommitAsBaseForRebase: B
+#     tagCommit: T
+#     checkoutCommit: <space>
+#     resetCherryPick: <ctrl+r>
+#     copyCommitAttributeToClipboard: "y"
+#     openLogMenu: <ctrl+l>
+#     openInBrowser: o
+#     openPullRequestInBrowser: G
+#     viewBisectOptions: b
+#     startInteractiveRebase: i
+#     selectCommitsOfCurrentBranch: '*'
+#
+#   amendAttribute:
+#     resetAuthor: a
+#     setAuthor: A
+#     addCoAuthor: c
+#
+#   stash:
+#     popStash: g
+#     renameStash: r
+#
+#   commitFiles:
+#     checkoutCommitFile: c
+#
+#   main:
+#     prevHunk: [<left>, h]
+#     nextHunk: [<right>, l]
+#     toggleSelectHunk: a
+#     pickBothHunks: b
+#     editSelectHunk: E
+#
+#   submodules:
+#     init: i
+#     update: u
+#     bulkMenu: b
+#
+#   commitMessage:
+#     commitMenu: <ctrl+o>
