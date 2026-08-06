@@ -58,6 +58,7 @@ This is an iterative Arch Linux workstation build project. The goal is to create
 - Papirus-Dark icon theme installed and configured for fuzzel
 - Noto Color Emoji font installed (noto-fonts-emoji)
 - Pacman configured with ILoveCandy (Pac-Man progress bar) and VerbosePkgLists
+- Lazygit configured with Atom One Dark theme, Nerd fonts v3, emoji parsing, and streamlined workflow
 
 ### What's Pending
 - Limine bootloader configuration (TODO in install.sh)

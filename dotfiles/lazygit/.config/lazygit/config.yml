@@ -5,197 +5,211 @@
 # GUI SETTINGS
 # ============================================================================
 
-# gui:
-#   # Custom colors for commit authors
-#   authorColors: {}
-#
-#   # Custom branch color patterns
-#   branchColorPatterns: {}
-#
-#   # Custom icons for files
-#   customIcons:
-#     filenames: {}
-#     extensions: {}
-#
-#   # Scroll settings
-#   scrollHeight: 2
-#   scrollPastBottom: true
-#   scrollOffMargin: 2
-#   scrollOffBehavior: margin  # margin | jump
-#
-#   # Tab width for diffs
-#   tabWidth: 4
-#
-#   # Mouse capture (makes text selection harder)
-#   mouseEvents: true
-#
-#   # Skip confirmation warnings
-#   skipAmendWarning: false
-#   skipDiscardChangeWarning: false
-#   skipStashWarning: false
-#   skipNoStagedFilesWarning: false
-#   skipRewordInEditorWarning: false
-#   skipSwitchWorktreeOnCheckoutWarning: false
-#
-#   # Layout
-#   sidePanelWidth: 0.3333
-#   expandFocusedSidePanel: false
-#   expandedSidePanelWeight: 2
-#   shrinkSidePanelsToContent: false
-#
-#   # Side panels order (tabs grouped together)
-#   sidePanels:
-#     - [status]
-#     - [files, worktrees, submodules]
-#     - [branches, remotes, tags]
-#     - [commits, reflog]
-#     - [stash]
-#
-#   # Split mode for main window
-#   mainPanelSplitMode: flexible  # horizontal | vertical | flexible
-#   enlargedSideViewLocation: left  # left | top
-#
-#   # Staging view
-#   wrapLinesInStagingView: true
-#   useHunkModeInStagingView: true
-#
-#   # Language and time format
-#   language: auto  # auto | en | zh-CN | zh-TW | pl | nl | ja | ko | ru | pt
-#   timeFormat: 02 Jan 06
-#   shortTimeFormat: 3:04PM
-#
-#   # Theme colors
-#   theme:
-#     activeBorderColor: [green, bold]
-#     inactiveBorderColor: [default]
-#     searchingActiveBorderColor: [cyan, bold]
-#     optionsTextColor: [blue]
-#     selectedLineBgColor: [blue]
-#     inactiveViewSelectedLineBgColor: [bold]
-#     cherryPickedCommitFgColor: [blue]
-#     cherryPickedCommitBgColor: [cyan]
-#     markedBaseCommitFgColor: [blue]
-#     markedBaseCommitBgColor: [yellow]
-#     unstagedChangesColor: [red]
-#     defaultFgColor: [default]
-#
-#   # Commit display
-#   commitLength:
-#     show: true
-#   commitAuthorShortLength: 2
-#   commitAuthorLongLength: 17
-#   commitHashLength: 8
-#   showBranchCommitHash: false
-#   showDivergenceFromBaseBranch: none  # none | onlyArrow | arrowAndNumber
-#
-#   # UI elements visibility
-#   showListFooter: true
-#   showFileTree: true
-#   showRootItemInFileTree: true
-#   fileTreeSortOrder: mixed  # mixed | filesFirst | foldersFirst
-#   fileTreeSortCaseSensitive: true
-#   showNumstatInFilesView: false
-#   showRandomTip: true
-#   showCommandLog: true
-#   showBottomLine: true
-#   showPanelJumps: true
-#   commandLogSize: 8
-#
-#   # Nerd fonts (requires Nerd Font installed)
-#   nerdFontsVersion: ""  # "" | "2" | "3"
-#   showFileIcons: true
-#
-#   # Window settings
-#   splitDiff: auto  # auto | always
-#   screenMode: normal  # normal | half | full
-#   border: rounded  # rounded | single | double | hidden | bold
-#   animateExplosion: true
-#   portraitMode: auto  # auto | always | never
-#   portraitModeAutoMaxWidth: 84
-#   portraitModeAutoMinHeight: 46
-#
-#   # Search/filter
-#   filterMode: substring  # substring | fuzzy
-#
-#   # Spinner animation
-#   spinner:
-#     frames: [●∙∙, ∙●∙, ∙∙●, ∙●∙]
-#     rate: 180
-#
-#   # Status panel
-#   statusPanelView: dashboard  # dashboard | allBranchesLog
-#   switchToFilesAfterStashPop: true
-#   switchToFilesAfterStashApply: true
-#   switchTabsWithPanelJumpKeys: false
+gui:
+  # Custom colors for commit authors
+  # authorColors: {}
+  
+  # Custom branch color patterns
+  # branchColorPatterns: {}
+  
+  # Custom icons for files
+  # customIcons:
+  #   filenames: {}
+  #   extensions: {}
+  
+  # Scroll settings
+  # scrollHeight: 2
+  # scrollPastBottom: true
+  # scrollOffMargin: 2
+  # scrollOffBehavior: margin  # margin | jump
+  
+  # Tab width for diffs
+  # tabWidth: 4
+  
+  # Mouse capture (makes text selection harder)
+  # mouseEvents: true
+  
+  # Skip confirmation warnings
+  skipAmendWarning: true
+  skipDiscardChangeWarning: true
+  skipStashWarning: true
+  skipNoStagedFilesWarning: true
+  # skipRewordInEditorWarning: false
+  # skipSwitchWorktreeOnCheckoutWarning: false
+  
+  # Layout
+  # sidePanelWidth: 0.3333
+  # expandFocusedSidePanel: false
+  # expandedSidePanelWeight: 2
+  # shrinkSidePanelsToContent: false
+  
+  # Side panels order (tabs grouped together)
+  # sidePanels:
+  #   - [status]
+  #   - [files, worktrees, submodules]
+  #   - [branches, remotes, tags]
+  #   - [commits, reflog]
+  #   - [stash]
+  
+  # Split mode for main window
+  # mainPanelSplitMode: flexible  # horizontal | vertical | flexible
+  # enlargedSideViewLocation: left  # left | top
+  
+  # Staging view
+  # wrapLinesInStagingView: true
+  # useHunkModeInStagingView: true
+  
+  # Language and time format
+  # language: auto  # auto | en | zh-CN | zh-TW | pl | nl | ja | ko | ru | pt
+  # timeFormat: 02 Jan 06
+  # shortTimeFormat: 3:04PM
+  
+  # Theme colors (uses terminal colors from Ghostty)
+  theme:
+    activeBorderColor:
+      - blue
+      - bold
+    inactiveBorderColor:
+      - grey
+    searchingActiveBorderColor:
+      - blue
+      - bold
+    optionsTextColor:
+      - blue
+    selectedLineBgColor:
+      - blue
+    inactiveViewSelectedLineBgColor:
+      - bold
+    cherryPickedCommitFgColor:
+      - blue
+    cherryPickedCommitBgColor:
+      - cyan
+    markedBaseCommitFgColor:
+      - blue
+    markedBaseCommitBgColor:
+      - yellow
+    unstagedChangesColor:
+      - red
+    defaultFgColor:
+      - default
+  
+  # Commit display
+  commitLength:
+    show: true
+  commitAuthorShortLength: 3
+  # commitAuthorLongLength: 17
+  commitHashLength: 8
+  # showBranchCommitHash: false
+  # showDivergenceFromBaseBranch: none  # none | onlyArrow | arrowAndNumber
+  
+  # UI elements visibility
+  # showListFooter: true
+  # showFileTree: true
+  # showRootItemInFileTree: true
+  # fileTreeSortOrder: mixed  # mixed | filesFirst | foldersFirst
+  # fileTreeSortCaseSensitive: true
+  # showNumstatInFilesView: false
+  showRandomTip: false
+  # showCommandLog: true
+  # showBottomLine: true
+  # showPanelJumps: true
+  # commandLogSize: 8
+  
+  # Nerd fonts (requires Nerd Font installed)
+  nerdFontsVersion: "3"
+  # showFileIcons: true
+  
+  # Window settings
+  # splitDiff: auto  # auto | always
+  # screenMode: normal  # normal | half | full
+  # border: rounded  # rounded | single | double | hidden | bold
+  # animateExplosion: true
+  # portraitMode: auto  # auto | always | never
+  # portraitModeAutoMaxWidth: 84
+  # portraitModeAutoMinHeight: 46
+  
+  # Search/filter
+  # filterMode: substring  # substring | fuzzy
+  
+  # Spinner animation
+  # spinner:
+  #   frames: [●∙∙, ∙●∙, ∙∙●, ∙●∙]
+  #   rate: 180
+  
+  # Status panel
+  # statusPanelView: dashboard  # dashboard | allBranchesLog
+  # switchToFilesAfterStashPop: true
+  # switchToFilesAfterStashApply: true
+  # switchTabsWithPanelJumpKeys: false
 
 # ============================================================================
 # GIT SETTINGS
 # ============================================================================
 
-# git:
-#   # Custom diff renderers
-#   diffRenderers: []
-#
-#   # Commit settings
-#   commit:
-#     signOff: false
-#     autoWrapCommitMessage: true
-#     autoWrapWidth: 72
-#
-#   # Merge settings
-#   merging:
-#     manualCommit: false
-#     args: ""
-#     squashMergeMessage: "Squash merge {{selectedRef}} into {{currentBranch}}"
-#
-#   # Main branches
-#   mainBranches: [master, main]
-#
-#   # Skip hooks prefix
-#   skipHookPrefix: WIP
-#
-#   # Auto operations
-#   autoFetch: true
-#   autoRefresh: true
-#   autoDetectExternalChanges: true
-#   autoForwardBranches: onlyMainBranches  # none | onlyMainBranches | allBranches
-#   fetchAll: true
-#   autoStageResolvedConflicts: true
-#
-#   # Log commands
-#   branchLogCmd: "git log --graph --color=always --abbrev-commit --decorate --date=relative --pretty=medium {{branchName}} --"
-#   allBranchesLogCmds:
-#     - "git log --graph --all --color=always --abbrev-commit --decorate --date=relative --pretty=medium"
-#
-#   # Diff settings
-#   ignoreWhitespaceInDiffView: false
-#   diffContextSize: 3
-#   renameSimilarityThreshold: 50
-#
-#   # GPG and force push
-#   overrideGpg: false
-#   disableForcePushing: false
-#
-#   # Commit/branch prefixes
-#   commitPrefix: []
-#   commitPrefixes: {}
-#   branchPrefix: ""
-#
-#   # Emoji parsing in commits
-#   parseEmoji: false
-#
-#   # Log display
-#   log:
-#     order: topo-order  # date-order | author-date-order | topo-order | default
-#     showGraph: always  # always | never | when-maximised
-#     showWholeGraph: false
-#
-#   # Branch sorting
-#   localBranchSortOrder: date  # date | recency | alphabetical
-#   remoteBranchSortOrder: date  # date | alphabetical
-#
-#   # Clipboard
-#   truncateCopiedCommitHashesTo: 12
+git:
+  # Custom diff renderers
+  # diffRenderers: []
+  
+  # Commit settings
+  # commit:
+  #   signOff: false
+  #   autoWrapCommitMessage: true
+  #   autoWrapWidth: 72
+  
+  # Merge settings
+  # merging:
+  #   manualCommit: false
+  #   args: ""
+  #   squashMergeMessage: "Squash merge {{selectedRef}} into {{currentBranch}}"
+  
+  # Main branches
+  # mainBranches: [master, main]
+  
+  # Skip hooks prefix
+  # skipHookPrefix: WIP
+  
+  # Auto operations
+  # autoFetch: true
+  # autoRefresh: true
+  # autoDetectExternalChanges: true
+  # autoForwardBranches: onlyMainBranches  # none | onlyMainBranches | allBranches
+  # fetchAll: true
+  # autoStageResolvedConflicts: true
+  
+  # Log commands
+  # branchLogCmd: "git log --graph --color=always --abbrev-commit --decorate --date=relative --pretty=medium {{branchName}} --"
+  # allBranchesLogCmds:
+  #   - "git log --graph --all --color=always --abbrev-commit --decorate --date=relative --pretty=medium"
+  
+  # Diff settings
+  ignoreWhitespaceInDiffView: false
+  diffContextSize: 6
+  # renameSimilarityThreshold: 50
+  
+  # GPG and force push
+  # overrideGpg: false
+  # disableForcePushing: false
+  
+  # Commit/branch prefixes
+  # commitPrefix: []
+  # commitPrefixes: {}
+  # branchPrefix: ""
+  
+  # Emoji parsing in commits
+  parseEmoji: true
+  
+  # Log display
+  # log:
+  #   order: topo-order  # date-order | author-date-order | topo-order | default
+  #   showGraph: always  # always | never | when-maximised
+  #   showWholeGraph: false
+  
+  # Branch sorting
+  # localBranchSortOrder: date  # date | recency | alphabetical
+  # remoteBranchSortOrder: date  # date | alphabetical
+  
+  # Clipboard
+  # truncateCopiedCommitHashesTo: 12
 
 # ============================================================================
 # WORKTREE SETTINGS
@@ -245,7 +259,7 @@
 #   readFromClipboardCmd: ""
 #   shellFunctionsFile: ""
 
-# disableStartupPopups: false
+disableStartupPopups: true
 # customCommands: []
 # services: {}
 # notARepository: prompt  # prompt | create | skip | quit

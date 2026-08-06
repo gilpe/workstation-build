@@ -189,6 +189,15 @@ Dotfiles are managed with GNU Stow. Configuration files are stored in `dotfiles/
 - **Spacing:** line-height=22, letter-spacing=1
 - **Colors:** Atom One Dark theme (matches Ghostty)
 
+### Lazygit
+- **Theme:** Atom One Dark (custom colors matching Ghostty)
+- **Nerd fonts:** Version 3 (file icons enabled)
+- **Workflow:** Skip confirmation warnings (amend, discard, stash, no staged files)
+- **Emoji:** Parse emoji strings in commit messages
+- **Diff context:** 6 lines (default is 3)
+- **UI:** Startup popups disabled, confirm on quit enabled
+- **Commit display:** Show commit length indicator, 3-char author names
+
 ### Neovim
 - **Config:** Modular Lua configuration
 - **Leader key:** Space
