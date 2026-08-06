@@ -134,6 +134,7 @@ Dotfiles are managed with GNU Stow. Configuration files are stored in `dotfiles/
 - opencode
 - superfile
 - fuzzel
+- papirus-icon-theme
 - gsettings-backend
 - **wlctl** (TUI wifi/ethernet/vpn manager for NetworkManager)
 
@@ -170,6 +171,14 @@ Dotfiles are managed with GNU Stow. Configuration files are stored in `dotfiles/
 - **Resize on border:** Enabled
 - **Logo/wallpaper:** Disabled
 - **Dwindle layout:** preserve_split = true (default behavior)
+
+### Fuzzel
+- **Icon theme:** Papirus-Dark
+- **Font:** JetBrainsMono Nerd Font Mono:size=9
+- **Layout:** Minimal single-line bar (lines=1)
+- **Icon size:** 0.9 ratio (80% larger than default)
+- **Spacing:** line-height=22, letter-spacing=1
+- **Colors:** Atom One Dark theme (matches Ghostty)
 
 ### Neovim
 - **Config:** Modular Lua configuration

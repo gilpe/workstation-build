@@ -91,6 +91,7 @@ install_pacman_packages() {
         opencode \
         superfile \
         fuzzel \
+        papirus-icon-theme \
         gsettings-backend
     
     success "Pacman packages installed"

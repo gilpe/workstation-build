@@ -55,6 +55,7 @@ This is an iterative Arch Linux workstation build project. The goal is to create
 - GTK3 apps use Adwaita:dark (built into GTK3)
 - GTK4/libadwaita apps read color-scheme preference via gsettings
 - Hyprland sets GTK_THEME env var and runs gsettings on startup
+- Papirus-Dark icon theme installed and configured for fuzzel
 
 ### What's Pending
 - Limine bootloader configuration (TODO in install.sh)
