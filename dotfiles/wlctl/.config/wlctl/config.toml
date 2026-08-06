@@ -1,10 +1,33 @@
-# wlctl configuration
-# TUI for NetworkManager wifi/ethernet/vpn management
-# Uses all defaults - customize as needed
+switch = "m"
+#mode = "station"
+esc_quit = true
+#vpn = "v"
 
-# Example configurations:
-# switch = "r"
-# mode = "station"
-# esc_quit = false
-# vpn = "v"
-# refresh_interval_ms = 1000
+# How often to re-read NetworkManager state, in milliseconds.
+# Raise it to trade responsiveness for less background work.
+#refresh_interval_ms = 1000
+
+[device]
+#infos = "i"
+#toggle_power = "o"
+doctor = "d"
+
+[station]
+#toggle_scanning = "s"
+
+[station.known_network]
+toggle_autoconnect = "A"
+remove = "r"
+show_all = "s"
+share = "p"
+#speed_test = "S"
+prefer = "f"
+
+[station.new_network]
+show_all = "s"
+#connect_hidden = "h"
+#filter = "/"
+
+#[access_point]
+#start = "n"
+#stop = "x"

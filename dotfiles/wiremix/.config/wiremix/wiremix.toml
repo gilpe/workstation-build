@@ -1,8 +1,11 @@
-# Wiremix configuration for PipeWire TUI mixer
-# Uses all defaults - customize as needed
-
-# Example configurations:
-# mouse = true
-# peaks = "auto"
-# tab = "playback"
-# max_volume_percent = 150.0
+#remote = "pipewire-0"
+#fps = 60.0
+#mouse = true
+#peaks = "auto"
+#char_set = "default"
+#theme = "default"
+#tab = "playback"
+#tabs = [ "playback", "recording", "output", "input", "configuration" ]
+max_volume_percent = 100.0
+enforce_max_volume = true
+lazy_capture = true
