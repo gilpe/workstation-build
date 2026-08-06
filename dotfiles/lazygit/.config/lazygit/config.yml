@@ -7,7 +7,9 @@
 
 gui:
   # Custom colors for commit authors
-  # authorColors: {}
+  authorColors:
+    'gilpe': magenta
+    '*': default
   
   # Custom branch color patterns
   # branchColorPatterns: {}
